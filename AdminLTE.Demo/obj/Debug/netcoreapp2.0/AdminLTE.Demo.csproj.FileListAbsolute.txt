@@ -1,0 +1,22 @@
+c:\users\feet\documents\visual studio 2017\Projects\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.deps.json
+c:\users\feet\documents\visual studio 2017\Projects\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.runtimeconfig.json
+c:\users\feet\documents\visual studio 2017\Projects\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.runtimeconfig.dev.json
+c:\users\feet\documents\visual studio 2017\Projects\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.dll
+c:\users\feet\documents\visual studio 2017\Projects\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.csproj.CoreCompileInputs.cache
+c:\users\feet\documents\visual studio 2017\Projects\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.AssemblyInfoInputs.cache
+c:\users\feet\documents\visual studio 2017\Projects\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.AssemblyInfo.cs
+c:\users\feet\documents\visual studio 2017\Projects\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.pdb
+c:\users\feet\documents\visual studio 2017\Projects\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.dll
+c:\users\feet\documents\visual studio 2017\Projects\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.pdb
+c:\users\feet\documents\visual studio 2017\Projects\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.csprojResolveAssemblyReference.cache
+E:\GitHub\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.deps.json
+E:\GitHub\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.runtimeconfig.json
+E:\GitHub\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.runtimeconfig.dev.json
+E:\GitHub\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.dll
+E:\GitHub\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.pdb
+E:\GitHub\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.csprojResolveAssemblyReference.cache
+E:\GitHub\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.csproj.CoreCompileInputs.cache
+E:\GitHub\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.AssemblyInfoInputs.cache
+E:\GitHub\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.AssemblyInfo.cs
+E:\GitHub\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.dll
+E:\GitHub\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.pdb
