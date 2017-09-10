@@ -1,7 +1,6 @@
-﻿using AdminLTE.Demo.Data;
-using AdminLTE.Demo.Data.IRepositories;
+﻿using AdminLTE.Demo.Domain.IRepositories;
+using AdminLTE.Demo.Infrastructure.Utility;
 using AdminLTE.Demo.Models;
-using AdminLTE.Demo.Utility;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Linq;
@@ -9,15 +8,13 @@ using System.Linq;
 namespace AdminLTE.Demo.Controllers
 {
 
-    public class LoginController : Controller,IActionFilter
+	public class LoginController : Controller,IActionFilter
     {
-        private readonly UnitOfWork _unitOfWork;
         private readonly IUserRepository _userRepository;
-        public LoginController(UnitOfWork unitOfWork, IUserRepository userRepository)
+        public LoginController(IUserRepository userRepository)
         {
-            _unitOfWork = unitOfWork;
-            _userRepository = userRepository;
-        }
+			_userRepository = userRepository;
+		}
         public IActionResult Index()
         {
             return View();
@@ -27,11 +24,9 @@ namespace AdminLTE.Demo.Controllers
         {
             var controllerName = filterContext.Controller.GetType().Name;
 
-            byte[] result;
+			filterContext.HttpContext.Session.TryGetValue("CurrentUser", out byte[] result);
 
-            filterContext.HttpContext.Session.TryGetValue("CurrentUser", out result);
-
-            if (result != null)
+			if (result != null)
             {
                 filterContext.Result = new RedirectResult("/Home/Index");
                 return;

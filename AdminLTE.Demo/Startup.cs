@@ -1,24 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AdminLTE.Demo.Domain.IRepositories;
+using AdminLTE.Demo.Filters;
+using AdminLTE.Demo.Repositories.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
-using AdminLTE.Demo.Data;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
-using AdminLTE.Demo.Data.Repositories;
-using Feet.AM.Data;
-using AdminLTE.Demo.Data.IRepositories;
-using AdminLTE.Demo.Filters;
 
 namespace AdminLTE.Demo
 {
-    public class Startup
+	public class Startup
     {
         public IConfigurationRoot Configuration { get; }
 
@@ -43,15 +36,14 @@ namespace AdminLTE.Demo
             var sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");
 
             //添加数据上下文
-            services.AddDbContext<DefaultContext>(options =>
-            options.UseSqlServer(sqlConnectionString), ServiceLifetime.Singleton);
+            services.AddDbContext<DefaultDbContext>(options =>
+            options.UseSqlServer(sqlConnectionString),ServiceLifetime.Singleton);
 
-            //仓储
-            services.AddScoped<UnitOfWork>();
-            services.AddScoped<IUserRepository, UserRepository>();
+			//仓储
+			services.AddScoped<IUserRepository, UserRepository>();
 
-            //登录拦截服务
-            services.AddScoped<LoginActionFilter>();
+			//登录拦截服务
+			services.AddScoped<LoginActionFilter>();
 
             //Session服务
             services.AddSession();

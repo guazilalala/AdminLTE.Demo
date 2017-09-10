@@ -20,3 +20,14 @@ E:\GitHub\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.Asse
 E:\GitHub\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.AssemblyInfo.cs
 E:\GitHub\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.dll
 E:\GitHub\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.pdb
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.deps.json
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.runtimeconfig.json
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.runtimeconfig.dev.json
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.dll
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.pdb
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.csproj.CoreCompileInputs.cache
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.AssemblyInfoInputs.cache
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.AssemblyInfo.cs
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.dll
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.pdb
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.csprojResolveAssemblyReference.cache

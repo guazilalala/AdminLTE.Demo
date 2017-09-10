@@ -5,7 +5,8 @@
     "iCheck": "1.0.2",
     "font-awesome": "4.7.0",
     "select2": "4.0.3",
-    "jstree": "3.3.0"
-
+    "jstree": "3.3.0",
+    "jquery.cookie": "1.4.1",
+    "layer": "3.0.3"
   }
 }
