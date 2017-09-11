@@ -1,0 +1,7 @@
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Application\bin\Debug\netcoreapp2.0\AdminLTE.Demo.Application.deps.json
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Application\bin\Debug\netcoreapp2.0\AdminLTE.Demo.Application.dll
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Application\bin\Debug\netcoreapp2.0\AdminLTE.Demo.Domain.dll
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Application\bin\Debug\netcoreapp2.0\AdminLTE.Demo.Domain.pdb
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Application\obj\Debug\netcoreapp2.0\AdminLTE.Demo.Application.csproj.CoreCompileInputs.cache
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Application\obj\Debug\netcoreapp2.0\AdminLTE.Demo.Application.AssemblyInfoInputs.cache
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Application\obj\Debug\netcoreapp2.0\AdminLTE.Demo.Application.AssemblyInfo.cs

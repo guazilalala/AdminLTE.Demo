@@ -8,14 +8,17 @@ using System.Threading.Tasks;
 
 namespace AdminLTE.Demo.Repositories.EntityFrameworkCore
 {
-
-	public class UserRepository : IUserRepository
+    /// <summary>
+    /// 用户仓储
+    /// </summary>
+	public class UserRepository :BaseRepository<User> ,IUserRepository
     {
-        private DefaultDbContext _dbContext;
-        public UserRepository(IServiceProvider serviceProvider)
+        /// <summary>
+        /// 用户管理仓储实现
+        /// </summary>
+        public UserRepository(DefaultDbContext dbContext):base(dbContext)
         {
-			_dbContext = new DefaultDbContext(serviceProvider.GetRequiredService<DbContextOptions<DefaultDbContext>>());
-		}
+        }
 
         /// <summary>
         /// 检查用户是存在
@@ -61,16 +64,6 @@ namespace AdminLTE.Demo.Repositories.EntityFrameworkCore
             }
 
             return user;
-        }
-
-        public int Save()
-        {
-          return _dbContext.SaveChanges();
-        }
-
-        public async Task<int> SaveAsync()
-        {
-            return await _dbContext.SaveChangesAsync();
         }
     }
 }

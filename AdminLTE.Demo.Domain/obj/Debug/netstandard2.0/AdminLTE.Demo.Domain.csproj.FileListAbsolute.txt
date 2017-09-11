@@ -6,3 +6,4 @@ D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Domain\bin\Debug\netstandard2.0\AdminLTE.D
 D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Domain\bin\Debug\netstandard2.0\AdminLTE.Demo.Domain.pdb
 D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Domain\obj\Debug\netstandard2.0\AdminLTE.Demo.Domain.dll
 D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Domain\obj\Debug\netstandard2.0\AdminLTE.Demo.Domain.pdb
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Domain\obj\Debug\netstandard2.0\AdminLTE.Demo.Domain.csprojResolveAssemblyReference.cache
