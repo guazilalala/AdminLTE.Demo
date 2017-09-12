@@ -14,7 +14,7 @@ namespace AdminLTE.Demo.Application.UserApp
 
         UserDto InsertOrUpdate(UserDto dto);
 
-        void DeteBatch(List<Guid> ids);
+        void DeleteBatch(List<Guid> ids);
 
         void Delete(Guid id);
 

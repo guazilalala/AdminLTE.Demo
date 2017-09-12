@@ -2,12 +2,17 @@
 using AdminLTE.Demo.Domain.IRepositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AdminLTE.Demo.Repositories.EntityFrameworkCore
 {
+    /// <summary>
+    /// 角色仓储
+    /// </summary>
     public class RoleRepository : BaseRepository<Role>, IRoleRepository
     {
+
         public RoleRepository(DefaultDbContext dbcontext) : base(dbcontext)
         {
 

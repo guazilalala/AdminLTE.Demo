@@ -1,15 +1,20 @@
-﻿using System;
+﻿using AdminLTE.Demo.Application.DepartmentApp.Dtos;
+using AdminLTE.Demo.Domain.Entities;
+using AdminLTE.Demo.Domain.IRepositories;
+using AutoMapper;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AdminLTE.Demo.Application.DepartmentApp
 {
     public class DepartmentAppService : IDepartmentAppService
     {
-        private readonly IDepartmentRepository _repository;
-        public DepartmentAppService(IDepartmentRepository repository)
+        private readonly IDepartmentRepository _departmentRepository;
+        public DepartmentAppService(IDepartmentRepository departmentRepository)
         {
-            _repository = repository;
+            _departmentRepository = departmentRepository;
         }
         /// <summary>
         /// 获取列表
@@ -17,7 +22,7 @@ namespace AdminLTE.Demo.Application.DepartmentApp
         /// <returns></returns>
         public List<DepartmentDto> GetAllList()
         {
-            return Mapper.Map<List<DepartmentDto>>(_repository.GetAllList(it => it.Id != Guid.Empty).OrderBy(it => it.Code));
+            return Mapper.Map<List<DepartmentDto>>(_departmentRepository.GetAllList(it => it.Id != Guid.Empty).OrderBy(it => it.Code));
         }
 
         /// <summary>
@@ -30,7 +35,7 @@ namespace AdminLTE.Demo.Application.DepartmentApp
         /// <returns></returns>
         public List<DepartmentDto> GetChildrenByParent(Guid parentId, int startPage, int pageSize, out int rowCount)
         {
-            return Mapper.Map<List<DepartmentDto>>(_repository.LoadPageList(startPage, pageSize, out rowCount, it => it.ParentId == parentId, it => it.Code));
+            return Mapper.Map<List<DepartmentDto>>(_departmentRepository.LoadPageList(startPage, pageSize, out rowCount, it => it.ParentId == parentId, it => it.Code));
         }
 
         /// <summary>
@@ -40,7 +45,7 @@ namespace AdminLTE.Demo.Application.DepartmentApp
         /// <returns></returns>
         public bool InsertOrUpdate(DepartmentDto dto)
         {
-            var menu = _repository.InsertOrUpdate(Mapper.Map<Department>(dto));
+            var menu = _departmentRepository.InsertOrUpdate(Mapper.Map<Department>(dto));
             return menu == null ? false : true;
         }
 
@@ -50,7 +55,7 @@ namespace AdminLTE.Demo.Application.DepartmentApp
         /// <param name="ids">Id集合</param>
         public void DeleteBatch(List<Guid> ids)
         {
-            _repository.Delete(it => ids.Contains(it.Id));
+            _departmentRepository.Delete(it => ids.Contains(it.Id));
         }
 
         /// <summary>
@@ -59,7 +64,7 @@ namespace AdminLTE.Demo.Application.DepartmentApp
         /// <param name="id">Id</param>
         public void Delete(Guid id)
         {
-            _repository.Delete(id);
+            _departmentRepository.Delete(id);
         }
 
         /// <summary>
@@ -69,7 +74,7 @@ namespace AdminLTE.Demo.Application.DepartmentApp
         /// <returns></returns>
         public DepartmentDto Get(Guid id)
         {
-            return Mapper.Map<DepartmentDto>(_repository.Get(id));
+            return Mapper.Map<DepartmentDto>(_departmentRepository.Get(id));
         }
     }
 }

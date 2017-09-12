@@ -325,7 +325,11 @@
                 </form>
                 <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
+
                 <ul class="sidebar-menu">
+                    @await Component.InvokeAsync("Navigation");
+                </ul>
+                @*<ul class="sidebar-menu">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="active treeview">
                         <a href="#">
@@ -380,7 +384,7 @@
                     <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
                     <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
                     <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
-                </ul>
+                </ul>*@
             </section>
             <!-- /.sidebar -->
         </aside>
@@ -585,15 +589,10 @@
 
     <!-- jQuery 2.2.3 -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>$.widget.bridge('uibutton', $.ui.button);</script>
     <!-- Bootstrap 3.3.7 -->
     <script src="~/Content/bootstrap/js/bootstrap.js"></script>
-    <!-- Morris.js charts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="~/Content/plugins/morris/morris.js"></script>
     <!-- Sparkline -->
     <script src="~/Content/plugins/sparkline/jquery.sparkline.min.js"></script>
     <!-- jvectormap -->
@@ -602,7 +601,6 @@
     <!-- jQuery Knob Chart -->
     <script src="~/Content/plugins/knob/jquery.knob.js"></script>
     <!-- daterangepicker -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
     <script src="~/Content/plugins/daterangepicker/daterangepicker.js"></script>
     <!-- datepicker -->
     <script src="~/Content/plugins/datepicker/bootstrap-datepicker.js"></script>
@@ -614,12 +612,12 @@
     <script src="~/Content/plugins/fastclick/fastclick.js"></script>
     <!-- AdminLTE App -->
     <script src="~/Content/dist/js/app.min.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="~/Content/dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="~/Content/dist/js/demo.js"></script>
+    <script src="~/lib/bootstrap-paginator/bootstrap-paginator.js"></script>
     <script src="~/lib/jstree/dist/jstree.min.js"></script>
     <script src="~/lib/select2/dist/js/select2.min.js"></script>
+    <script src="~/lib/layer/build/layer.js"></script>
     <script src="~/lib/select2/dist/js/i18n/zh-CN.js"></script>
     @RenderSection("scripts", false)
 </body>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace AdminLTE.Demo.Filters
 {
     /// <summary>
-    /// 登陆过滤器
+    /// 登录过滤器
     /// </summary>
     public class LoginActionFilter : IActionFilter
     {

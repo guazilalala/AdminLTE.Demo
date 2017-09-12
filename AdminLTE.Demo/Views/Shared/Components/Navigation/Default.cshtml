@@ -1,0 +1,28 @@
+﻿@model List<AdminLTE.Demo.Application.MenuApp.Dtos.MenuDto>
+<li class="header">导航</li>
+
+@foreach (var menu in Model)
+{
+    var isActive = ViewBag.CurrentMenu == menu.Code; //判断当前功能是否处于激活
+
+    if (menu.ParentId == Guid.Parse("00000000-0000-0000-0000-000000000000"))
+    {
+
+        <li class="active treeview">
+            <a><i class="@menu.Icon"></i> <span>@menu.Name</span></a>
+            <ul class="treeview-menu">
+                @foreach (var subItem in Model)
+                {
+                    isActive = ViewBag.CurrentMenu == subItem.Code; //判断当前功能是否处于激活
+
+                    if (subItem.ParentId == menu.Id)
+                    {
+                        <li class="@(isActive ? "active" : "")"><a href="@subItem.Url"><i class="@subItem.Icon"></i> <span>@subItem.Name</span></a></li>
+                    }
+                }
+            </ul>
+        </li>
+
+        @*<li class="@(isActive ? "active" : "")"><a href="@menu.Url"><i class="fa fa-link"></i> <span>@menu.Name</span></a></li>*@
+    }
+}

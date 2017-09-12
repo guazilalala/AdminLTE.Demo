@@ -20,6 +20,7 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AdminLTE.Demo.Application\AdminLTE.Demo.Application.csproj" />
     <ProjectReference Include="..\AdminLTE.Demo.Domain\AdminLTE.Demo.Domain.csproj" />
     <ProjectReference Include="..\AdminLTE.Demo.Infrastructure\AdminLTE.Demo.Infrastructure.csproj" />
     <ProjectReference Include="..\AdminLTE.Demo.Repositories\AdminLTE.Demo.Repositories.csproj" />

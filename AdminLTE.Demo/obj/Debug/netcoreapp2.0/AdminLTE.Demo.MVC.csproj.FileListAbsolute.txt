@@ -15,3 +15,5 @@ D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.Infr
 D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.Repositories.pdb
 D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.MVC.dll
 D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\obj\Debug\netcoreapp2.0\AdminLTE.Demo.MVC.pdb
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.Application.dll
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\bin\Debug\netcoreapp2.0\AdminLTE.Demo.Application.pdb

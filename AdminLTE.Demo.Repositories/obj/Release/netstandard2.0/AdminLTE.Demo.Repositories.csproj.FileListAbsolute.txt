@@ -1,0 +1,11 @@
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Repositories\bin\Release\netstandard2.0\AdminLTE.Demo.Repositories.deps.json
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Repositories\bin\Release\netstandard2.0\AdminLTE.Demo.Repositories.dll
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Repositories\bin\Release\netstandard2.0\AdminLTE.Demo.Repositories.pdb
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Repositories\bin\Release\netstandard2.0\AdminLTE.Demo.Domain.dll
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Repositories\bin\Release\netstandard2.0\AdminLTE.Demo.Domain.pdb
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Repositories\obj\Release\netstandard2.0\AdminLTE.Demo.Repositories.csprojResolveAssemblyReference.cache
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Repositories\obj\Release\netstandard2.0\AdminLTE.Demo.Repositories.csproj.CoreCompileInputs.cache
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Repositories\obj\Release\netstandard2.0\AdminLTE.Demo.Repositories.AssemblyInfoInputs.cache
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Repositories\obj\Release\netstandard2.0\AdminLTE.Demo.Repositories.AssemblyInfo.cs
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Repositories\obj\Release\netstandard2.0\AdminLTE.Demo.Repositories.dll
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Repositories\obj\Release\netstandard2.0\AdminLTE.Demo.Repositories.pdb

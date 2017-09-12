@@ -15,6 +15,9 @@ namespace AdminLTE.Demo.Application
     /// </summary>
    public class DefaultMapper
     {
+        /// <summary>
+        /// 初始化映射关系
+        /// </summary>
         public static void Initialize()
         {
             Mapper.Initialize(cfg =>

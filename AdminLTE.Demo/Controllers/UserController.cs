@@ -1,20 +1,26 @@
-﻿using AdminLTE.Demo.Domain.Entities;
+﻿using AdminLTE.Demo.Application.RoleApp;
+using AdminLTE.Demo.Application.UserApp;
+using AdminLTE.Demo.Application.UserApp.Dtos;
+using AdminLTE.Demo.Domain.Entities;
 using AdminLTE.Demo.Domain.IRepositories;
 using AdminLTE.Demo.Filters;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 
-namespace AdminLTE.Demo.Controllers
+namespace AdminLTE.Demo.MVC.Controllers
 {
-	[ServiceFilter(typeof(LoginActionFilter))]
-    public class UserController : Controller
+    [ServiceFilter(typeof(LoginActionFilter))]
+    public class UserController : BaseController
     {
-        private readonly IUserRepository _userRepository;
-        public UserController(IUserRepository userRepository)
+        private readonly IUserAppService _userAppService;
+        private readonly IRoleAppService _roleAppService;
+        public UserController(IUserAppService userAppService, IRoleAppService roleAppService)
         {
-			_userRepository = userRepository;
+            _userAppService = userAppService;
+            _roleAppService = roleAppService;
         }
+
         public IActionResult Index()
         {
             return View();
@@ -22,28 +28,90 @@ namespace AdminLTE.Demo.Controllers
 
         public IActionResult GetUserByDepartment(Guid departmentId, int startPage, int pageSize)
         {
-			return null;
+            int rowCount = 0;
+            var result = _userAppService.GetUserByDepartment(departmentId, startPage, pageSize, out rowCount);
+            var roles = _roleAppService.GetAllList();
+            return Json(new
+            {
+                rowCount = rowCount,
+                pageCount = Math.Ceiling(Convert.ToDecimal(rowCount) / pageSize),
+                rows = result,
+                roles = roles
+            });
         }
 
-        public IActionResult Edit(User user, string roles)
+        public IActionResult Edit(UserDto dto, string roles)
         {
-			return null;
-		}
+            try
+            {
+                if (dto.Id == Guid.Empty)
+                {
+                    dto.Id = Guid.NewGuid();
+                }
+                var userRoles = new List<UserRoleDto>();
+                foreach (var role in roles.Split(','))
+                {
+                    userRoles.Add(new UserRoleDto() { UserId = dto.Id, RoleId = Guid.Parse(role) });
+                }
+                dto.UserRoles = userRoles;
+                var user = _userAppService.InsertOrUpdate(dto);
+                return Json(new { Result = "Success" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Result = "Faild", Message = ex.Message });
 
-		public IActionResult GetByID(Guid id)
+            }
+        }
+
+        public IActionResult DeleteMuti(string ids)
         {
-			return null;
-		}
-
-		public IActionResult Delete(Guid id)
+            try
+            {
+                string[] idArray = ids.Split(',');
+                List<Guid> delIds = new List<Guid>();
+                foreach (string id in idArray)
+                {
+                    delIds.Add(Guid.Parse(id));
+                }
+                _userAppService.DeleteBatch(delIds);
+                return Json(new
+                {
+                    Result = "Success"
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    Result = "Faild",
+                    Message = ex.Message
+                });
+            }
+        }
+        public IActionResult Delete(Guid id)
         {
-			return null;
-		}
-
-		public IActionResult DeleteMuti(string ids)
+            try
+            {
+                _userAppService.Delete(id);
+                return Json(new
+                {
+                    Result = "Success"
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    Result = "Faild",
+                    Message = ex.Message
+                });
+            }
+        }
+        public IActionResult Get(Guid id)
         {
-			return null;
-		}
-
-	}
+            var dto = _userAppService.Get(id);
+            return Json(dto);
+        }
+    }
 }

@@ -36,7 +36,7 @@ namespace AdminLTE.Demo.Application.UserApp
             _userRepository.Delete(id);
         }
 
-        public void DeteBatch(List<Guid> ids)
+        public void DeleteBatch(List<Guid> ids)
         {
             _userRepository.Delete(it=>ids.Contains(it.Id));
         }

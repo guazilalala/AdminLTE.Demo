@@ -1,4 +1,9 @@
-﻿using AdminLTE.Demo.Domain.IRepositories;
+﻿using AdminLTE.Demo.Application;
+using AdminLTE.Demo.Application.DepartmentApp;
+using AdminLTE.Demo.Application.MenuApp;
+using AdminLTE.Demo.Application.RoleApp;
+using AdminLTE.Demo.Application.UserApp;
+using AdminLTE.Demo.Domain.IRepositories;
 using AdminLTE.Demo.Filters;
 using AdminLTE.Demo.Repositories.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
@@ -25,7 +30,8 @@ namespace AdminLTE.Demo
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
 
-
+            //初始化映射关系
+            DefaultMapper.Initialize();
         }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
@@ -39,9 +45,15 @@ namespace AdminLTE.Demo
             services.AddDbContext<DefaultDbContext>(options =>
             options.UseSqlServer(sqlConnectionString),ServiceLifetime.Singleton);
 
-			//仓储
+			//依赖注入
 			services.AddScoped<IUserRepository, UserRepository>();
-
+            services.AddScoped<IUserAppService, UserAppService>();
+            services.AddScoped<IMenuRepository, MenuRepository>();
+            services.AddScoped<IMenuAppService, MenuAppService>();
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<IDepartmentAppService, DepartmentAppService>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IRoleAppService, RoleAppService>();
 			//登录拦截服务
 			services.AddScoped<LoginActionFilter>();
 
@@ -73,6 +85,7 @@ namespace AdminLTE.Demo
                     template: "{controller=Login}/{action=Index}/{id?}");
     
             });
+
             SeedData.Initialize(app.ApplicationServices); //初始化数据
 
         }

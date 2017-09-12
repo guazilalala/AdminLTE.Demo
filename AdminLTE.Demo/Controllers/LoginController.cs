@@ -1,14 +1,15 @@
 ﻿using AdminLTE.Demo.Domain.IRepositories;
 using AdminLTE.Demo.Infrastructure.Utility;
 using AdminLTE.Demo.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Linq;
 
-namespace AdminLTE.Demo.Controllers
+namespace AdminLTE.Demo.MVC.Controllers
 {
 
-	public class LoginController : Controller,IActionFilter
+    public class LoginController : BaseController, IActionFilter
     {
         private readonly IUserRepository _userRepository;
         public LoginController(IUserRepository userRepository)
@@ -17,7 +18,12 @@ namespace AdminLTE.Demo.Controllers
 		}
         public IActionResult Index()
         {
-            return View();
+            var model = new LoginModel
+            {
+                UserName = "Admin",
+                Password = "123456"
+            };
+            return View(model);
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
@@ -44,8 +50,9 @@ namespace AdminLTE.Demo.Controllers
                 if (user != null)
                 {
                     //记录Session
+                    HttpContext.Session.SetString("CurrentUserId", user.Id.ToString());
                     HttpContext.Session.Set("CurrentUser", ByteConvertHelper.Object2Bytes(user));
-
+                    //跳转到系统首页
                     return RedirectToAction("Index", "Home");
                 }
 
