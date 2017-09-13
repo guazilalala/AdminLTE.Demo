@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     ViewBag.CurrentMenu = "Menu";
 }
 <div class="row">
@@ -8,7 +9,7 @@
                 <h3 class="box-title">功能管理</h3>
             </div>
             <div class="box-body">
-                <div id="treeDiv" class="portlet-body">
+                <div id="treeDiv" class="portlet-body tree">
                 </div>
             </div>
         </div>
@@ -70,5 +71,6 @@
 </div>
 @Html.Partial("_Edit")
 @section scripts{
-    <script src="~/Views/Menu/Index.js"></script>
+    <script src="~/Menu/Index.js"></script>
 }
+

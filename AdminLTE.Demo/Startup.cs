@@ -43,7 +43,7 @@ namespace AdminLTE.Demo
 
             //添加数据上下文
             services.AddDbContext<DefaultDbContext>(options =>
-            options.UseSqlServer(sqlConnectionString),ServiceLifetime.Singleton);
+            options.UseSqlServer(sqlConnectionString));
 
 			//依赖注入
 			services.AddScoped<IUserRepository, UserRepository>();
@@ -66,7 +66,13 @@ namespace AdminLTE.Demo
         {
             if (env.IsDevelopment())
             {
+                //开发环境异常处理
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                //生产环境异常处理
+                app.UseExceptionHandler("/Shared/Error");
             }
 
             //使用静态文件
@@ -86,7 +92,7 @@ namespace AdminLTE.Demo
     
             });
 
-            SeedData.Initialize(app.ApplicationServices); //初始化数据
+            //SeedData.Initialize(app.ApplicationServices); //初始化数据
 
         }
     }

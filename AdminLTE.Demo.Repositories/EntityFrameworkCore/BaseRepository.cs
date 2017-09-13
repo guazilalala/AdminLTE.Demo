@@ -155,7 +155,7 @@ namespace AdminLTE.Demo.Repositories.EntityFrameworkCore
         /// <param name="where">条件</param>
         /// <param name="order">排序</param>
         /// <returns></returns>
-        public IQueryable<TEntity> LoadPageList(int startPage, int pageSize, out int rowCount, Expression<Func<TEntity, bool>> where = null, Expression<Func<TEntity, object>> order = null)
+        public IEnumerable<TEntity> LoadPageList(int startPage, int pageSize, out int rowCount, Expression<Func<TEntity, bool>> where = null, Expression<Func<TEntity, object>> order = null)
         {
             var result = from p in _dbContext.Set<TEntity>()
                          select p;

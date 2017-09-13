@@ -1,4 +1,5 @@
-﻿using AdminLTE.Demo.Domain.IRepositories;
+﻿using AdminLTE.Demo.Application.UserApp;
+using AdminLTE.Demo.Domain.IRepositories;
 using AdminLTE.Demo.Infrastructure.Utility;
 using AdminLTE.Demo.Models;
 using Microsoft.AspNetCore.Http;
@@ -11,10 +12,10 @@ namespace AdminLTE.Demo.MVC.Controllers
 
     public class LoginController : BaseController, IActionFilter
     {
-        private readonly IUserRepository _userRepository;
-        public LoginController(IUserRepository userRepository)
+        private readonly IUserAppService _userAppService;
+        public LoginController(IUserAppService userAppService)
         {
-			_userRepository = userRepository;
+            _userAppService = userAppService;
 		}
         public IActionResult Index()
         {
@@ -45,8 +46,7 @@ namespace AdminLTE.Demo.MVC.Controllers
             if (ModelState.IsValid)
             {
                 //检查用户信息
-                var user = _userRepository.CheckUser(model.UserName, model.Password);
-
+                var user = _userAppService.CheckUser(model.UserName, model.Password);
                 if (user != null)
                 {
                     //记录Session
@@ -55,13 +55,17 @@ namespace AdminLTE.Demo.MVC.Controllers
                     //跳转到系统首页
                     return RedirectToAction("Index", "Home");
                 }
-
-                ViewBag.ErrorInfo = "用户名或密码错误";
-
+                ViewBag.ErrorInfo = "用户名或密码错误。";
                 return View();
             }
-
-            ViewBag.ErrorInfo = ModelState.Values.First().Errors[0].ErrorMessage;
+            foreach (var item in ModelState.Values)
+            {
+                if (item.Errors.Count > 0)
+                {
+                    ViewBag.ErrorInfo = item.Errors[0].ErrorMessage;
+                    break;
+                }
+            }
             return View(model);
         }
     }

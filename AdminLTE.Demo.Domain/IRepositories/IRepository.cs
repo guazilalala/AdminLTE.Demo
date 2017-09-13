@@ -100,7 +100,7 @@ namespace AdminLTE.Demo.Domain.IRepositories
 		/// <param name="where">查询条件</param>
 		/// <param name="order">排序</param>
 		/// <returns></returns>
-		IQueryable<TEntity> LoadPageList(int startPage, int pageSize, out int rowCount, Expression<Func<TEntity, bool>> where, Expression<Func<TEntity, object>> order);
+		IEnumerable<TEntity> LoadPageList(int startPage, int pageSize, out int rowCount, Expression<Func<TEntity, bool>> where, Expression<Func<TEntity, object>> order);
 
 		void Save();
 

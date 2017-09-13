@@ -1,5 +1,6 @@
 ﻿using AdminLTE.Demo.Application.MenuApp;
 using AdminLTE.Demo.Application.MenuApp.Dtos;
+using AdminLTE.Demo.Filters;
 using AdminLTE.Demo.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 
 namespace AdminLTE.Demo.MVC.Controllers
 {
+    [ServiceFilter(typeof(LoginActionFilter))]
     public class MenuController : BaseController
     {
         private readonly IMenuAppService _menuAppService;
@@ -38,6 +40,7 @@ namespace AdminLTE.Demo.MVC.Controllers
                     Parent = menu.ParentId == Guid.Empty ? "#" : menu.ParentId.ToString()
                 });
             }
+            ViewBag.TreeModels = treeModels;
             return Json(treeModels);
 
         }

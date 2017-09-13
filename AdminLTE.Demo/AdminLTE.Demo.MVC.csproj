@@ -25,6 +25,12 @@
     <ProjectReference Include="..\AdminLTE.Demo.Infrastructure\AdminLTE.Demo.Infrastructure.csproj" />
     <ProjectReference Include="..\AdminLTE.Demo.Repositories\AdminLTE.Demo.Repositories.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\Department\Index.js" />
+    <None Include="wwwroot\Menu\Index.js" />
+    <None Include="wwwroot\Role\Index.js" />
+    <None Include="wwwroot\User\Index.js" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties bower_1json__JSONSchema="" />

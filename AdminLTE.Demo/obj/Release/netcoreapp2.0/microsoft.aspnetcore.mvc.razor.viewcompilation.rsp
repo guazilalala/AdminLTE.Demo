@@ -11,6 +11,7 @@ D:\GitHub\AdminLTE.Demo\AdminLTE.Demo
 --file=D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\Views\Role\Index.cshtml
 --file=D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\Views\Role\_Edit.cshtml
 --file=D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\Views\Shared\Components\Navigation\Default.cshtml
+--file=D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\Views\Shared\Error.cshtml
 --file=D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\Views\Shared\_Layout.cshtml
 --file=D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\Views\User\Index.cshtml
 --file=D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\Views\User\_Edit.cshtml

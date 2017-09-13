@@ -6,3 +6,4 @@ D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Infrastructure\obj\Debug\netstandard2.0\Ad
 D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Infrastructure\bin\Debug\netstandard2.0\AdminLTE.Demo.Infrastructure.pdb
 D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Infrastructure\obj\Debug\netstandard2.0\AdminLTE.Demo.Infrastructure.dll
 D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Infrastructure\obj\Debug\netstandard2.0\AdminLTE.Demo.Infrastructure.pdb
+D:\GitHub\AdminLTE.Demo\AdminLTE.Demo.Infrastructure\obj\Debug\netstandard2.0\AdminLTE.Demo.Infrastructure.csprojResolveAssemblyReference.cache

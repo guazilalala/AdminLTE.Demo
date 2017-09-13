@@ -1,4 +1,5 @@
-﻿using AdminLTE.Demo.Application.RoleApp;
+﻿using AdminLTE.Demo.Application.MenuApp;
+using AdminLTE.Demo.Application.RoleApp;
 using AdminLTE.Demo.Application.UserApp;
 using AdminLTE.Demo.Application.UserApp.Dtos;
 using AdminLTE.Demo.Domain.Entities;
@@ -15,14 +16,18 @@ namespace AdminLTE.Demo.MVC.Controllers
     {
         private readonly IUserAppService _userAppService;
         private readonly IRoleAppService _roleAppService;
-        public UserController(IUserAppService userAppService, IRoleAppService roleAppService)
+        private readonly IMenuAppService _menuAppService;
+        public UserController(IUserAppService userAppService, IRoleAppService roleAppService, IMenuAppService menuAppService)
         {
             _userAppService = userAppService;
             _roleAppService = roleAppService;
+            _menuAppService = menuAppService;
         }
 
         public IActionResult Index()
         {
+            ViewBag.PageHeader = "用户管理";
+            ViewBag.OptionalDescription = "列表";
             return View();
         }
 
