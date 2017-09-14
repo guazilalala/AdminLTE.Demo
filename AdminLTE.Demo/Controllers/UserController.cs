@@ -1,4 +1,6 @@
-﻿using AdminLTE.Demo.Application.MenuApp;
+﻿using AdminLTE.Demo.Application.DepartmentApp;
+using AdminLTE.Demo.Application.DepartmentApp.Dtos;
+using AdminLTE.Demo.Application.MenuApp;
 using AdminLTE.Demo.Application.RoleApp;
 using AdminLTE.Demo.Application.UserApp;
 using AdminLTE.Demo.Application.UserApp.Dtos;
@@ -17,8 +19,14 @@ namespace AdminLTE.Demo.MVC.Controllers
         private readonly IUserAppService _userAppService;
         private readonly IRoleAppService _roleAppService;
         private readonly IMenuAppService _menuAppService;
-        public UserController(IUserAppService userAppService, IRoleAppService roleAppService, IMenuAppService menuAppService)
+        private readonly IDepartmentAppService _departmentAppService;
+
+        public UserController(IUserAppService userAppService, 
+            IRoleAppService roleAppService, 
+            IMenuAppService menuAppService,
+            IDepartmentAppService departmentAppService)
         {
+            _departmentAppService = departmentAppService;
             _userAppService = userAppService;
             _roleAppService = roleAppService;
             _menuAppService = menuAppService;
@@ -28,7 +36,9 @@ namespace AdminLTE.Demo.MVC.Controllers
         {
             ViewBag.PageHeader = "用户管理";
             ViewBag.OptionalDescription = "列表";
-            return View();
+
+            List<DepartmentDto> departments = _departmentAppService.GetAllList();
+            return View(departments);
         }
 
         public IActionResult GetUserByDepartment(Guid departmentId, int startPage, int pageSize)
@@ -47,6 +57,19 @@ namespace AdminLTE.Demo.MVC.Controllers
 
         public IActionResult Edit(UserDto dto, string roles)
         {
+            if (!ModelState.IsValid)
+            {
+                foreach (var item in ModelState.Values)
+                {
+                    if (item.Errors.Count > 0)
+                    {
+                        ViewBag.ErrorInfo = item.Errors[0].ErrorMessage;
+                        break;
+                    }
+                }
+                return View(dto);
+            }
+
             try
             {
                 if (dto.Id == Guid.Empty)

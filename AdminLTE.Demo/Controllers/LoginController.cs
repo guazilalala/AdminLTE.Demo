@@ -58,6 +58,7 @@ namespace AdminLTE.Demo.MVC.Controllers
                 ViewBag.ErrorInfo = "用户名或密码错误。";
                 return View();
             }
+
             foreach (var item in ModelState.Values)
             {
                 if (item.Errors.Count > 0)

@@ -1,7 +1,16 @@
 ﻿var selectedId = "00000000-0000-0000-0000-000000000000";
 $(function () {
     $("#btnAdd").click(function () { add(); });
-    $("#btnSave").click(function () { save(); });
+    $("#btnSave").click(function () {
+        //显示服务端验证的错误信息
+        if ($("#errorInfo").val()) {
+            layer.tips($("#errorInfo").val(), "#btnSave");
+        }
+        else
+        {
+            save();
+        }
+    });
     $("#btnDelete").click(function () { deleteMulti(); });
     $("#checkAll").click(function () { checkAll(this) });
     initTree();

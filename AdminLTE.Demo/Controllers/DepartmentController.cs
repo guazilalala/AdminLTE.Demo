@@ -19,6 +19,8 @@ namespace AdminLTE.Demo.MVC.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.PageHeader = "组织机构管理";
+            ViewBag.OptionalDescription = "列表";
             return View();
         }
 

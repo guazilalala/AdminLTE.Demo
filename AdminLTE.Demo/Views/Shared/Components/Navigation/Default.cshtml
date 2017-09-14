@@ -1,43 +1,37 @@
 ﻿@model List<AdminLTE.Demo.Application.MenuApp.Dtos.MenuDto>
 
-@*<ul class="sidebar-menu">
-    <li class="header">主导航</li>
-        <li class="active treeview">
-            <a href="#">
-                <i class="fa fa-dashboard"></i> <span>权限管理</span>
-                <span class="pull-right-container">
-                    <i class="fa fa-angle-left pull-right"></i>
-                </span>
-            </a>
-            <ul class="treeview-menu">
-                <li ><a href="Department"><i class="fa fa-circle-o"></i> 组织机构管理</a></li>
-                <li ><a href="User"><i class="fa fa-circle-o"></i> 用户管理</a></li>
-                <li ><a href="Role"><i class="fa fa-circle-o"></i> 角色管理</a></li>
-                <li ><a href="Menu"><i class="fa fa-circle-o"></i> 功能管理</a></li>
-            </ul>
-        </li>
-    </ul>*@
-@foreach (var menu in Model)
+@*//顶层*@
+@foreach (var mpLevel1 in Model.Where(p => p.ParentId == Guid.Empty))
 {
-    var isActive = ViewBag.CurrentMenu == menu.Code; //判断当前功能是否处于激活
+    <li class="active treeview">
+        <a href="#"><i class="@mpLevel1.Icon"></i><span>@mpLevel1.Name</span></a>
 
-    if (menu.ParentId == Guid.Parse("00000000-0000-0000-0000-000000000000"))
-    {
-
-        <li class="active treeview">
-            <a><i class="@menu.Icon"></i> <span>@menu.Name</span></a>
+        @if (Model.Count(p => p.ParentId == mpLevel1.Id) > 0)                //第二层
+        {
             <ul class="treeview-menu">
-                @foreach (var subItem in Model)
+                @foreach (var cpLevel2 in Model.Where(p => p.ParentId == mpLevel1.Id))
                 {
-                    isActive = ViewBag.CurrentMenu == subItem.Code; //判断当前功能是否处于激活
+                    var level2IsActive = ViewBag.CurrentMenu == cpLevel2.Code;
 
-                    if (subItem.ParentId == menu.Id)
-                    {
-                        <li class="@(isActive ? "active" : "")"><a href="@subItem.Url"><i class="@subItem.Icon"></i> <span>@subItem.Name</span></a></li>
-                    }
+                    <li class="@(level2IsActive ? "active" : "")" )"><a href="@cpLevel2.Url"><i class="@cpLevel2.Icon"></i><span>@cpLevel2.Name</span></a>
+
+                        @if (Model.Count(p => p.ParentId == cpLevel2.Id) > 0) //第三层
+                        {
+                            <ul class="treeview-menu">
+                                @foreach (var cpLevel3 in Model.Where(p => p.ParentId == cpLevel2.Id))
+                                {
+                                    var level3IsActive = ViewBag.CurrentMenu == cpLevel3.Code;
+                                    <li class="@(level3IsActive ? "active" : "")" )"><a href="@cpLevel3.Url"><i class="@cpLevel3.Icon"></i><span>@cpLevel3.Name</span></a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </li>
                 }
             </ul>
-        </li>
+        }
+    </li>
+}
 
     }
 }
