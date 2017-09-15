@@ -1,37 +1,39 @@
 ﻿@model List<AdminLTE.Demo.Application.MenuApp.Dtos.MenuDto>
 
-@*//顶层*@
-@foreach (var mpLevel1 in Model.Where(p => p.ParentId == Guid.Empty))
-{
-    <li class="active treeview">
-        <a href="#"><i class="@mpLevel1.Icon"></i><span>@mpLevel1.Name</span></a>
+<ul class="sidebar-menu">
+    <li class="header">导航菜单</li>
+    @*//顶层*@
+    @foreach (var mpLevel1 in Model.Where(p => p.ParentId == Guid.Empty))
+    {
+        <li class="active treeview">
+            <a href="#"><i class="@mpLevel1.Icon"></i><span>@mpLevel1.Name</span></a>
 
-        @if (Model.Count(p => p.ParentId == mpLevel1.Id) > 0)                //第二层
+            @if (Model.Count(p => p.ParentId == mpLevel1.Id) > 0)                //第二层
         {
-            <ul class="treeview-menu">
-                @foreach (var cpLevel2 in Model.Where(p => p.ParentId == mpLevel1.Id))
+        <ul class="treeview-menu">
+            @foreach (var cpLevel2 in Model.Where(p => p.ParentId == mpLevel1.Id))
                 {
                     var level2IsActive = ViewBag.CurrentMenu == cpLevel2.Code;
 
-                    <li class="@(level2IsActive ? "active" : "")" )"><a href="@cpLevel2.Url"><i class="@cpLevel2.Icon"></i><span>@cpLevel2.Name</span></a>
+                <li class="@(level2IsActive ? "active" : "")" )">
+                    <a href="@cpLevel2.Url"><i class="@cpLevel2.Icon"></i><span>@cpLevel2.Name</span></a>
 
-                        @if (Model.Count(p => p.ParentId == cpLevel2.Id) > 0) //第三层
+                    @if (Model.Count(p => p.ParentId == cpLevel2.Id) > 0) //第三层
                         {
-                            <ul class="treeview-menu">
-                                @foreach (var cpLevel3 in Model.Where(p => p.ParentId == cpLevel2.Id))
+                        <ul class="treeview-menu">
+                            @foreach (var cpLevel3 in Model.Where(p => p.ParentId == cpLevel2.Id))
                                 {
                                     var level3IsActive = ViewBag.CurrentMenu == cpLevel3.Code;
-                                    <li class="@(level3IsActive ? "active" : "")" )"><a href="@cpLevel3.Url"><i class="@cpLevel3.Icon"></i><span>@cpLevel3.Name</span></a>
-                                    </li>
+                                <li class="@(level3IsActive ? "active" : "")" )">
+                                    <a href="@cpLevel3.Url"><i class="@cpLevel3.Icon"></i><span>@cpLevel3.Name</span></a>
+                                </li>
                                 }
-                            </ul>
+                        </ul>
                         }
-                    </li>
+                </li>
                 }
-            </ul>
+        </ul>
         }
-    </li>
-}
-
+        </li>
     }
-}
+</ul>

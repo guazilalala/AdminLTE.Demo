@@ -20,16 +20,18 @@ namespace AdminLTE.Demo.MVC.Controllers
         private readonly IRoleAppService _roleAppService;
         private readonly IMenuAppService _menuAppService;
         private readonly IDepartmentAppService _departmentAppService;
-
-        public UserController(IUserAppService userAppService, 
-            IRoleAppService roleAppService, 
+        private readonly IUserRepository _userRepository;
+        public UserController(IUserAppService userAppService,
+            IRoleAppService roleAppService,
             IMenuAppService menuAppService,
-            IDepartmentAppService departmentAppService)
+            IDepartmentAppService departmentAppService,
+            IUserRepository userRepository)
         {
             _departmentAppService = departmentAppService;
             _userAppService = userAppService;
             _roleAppService = roleAppService;
             _menuAppService = menuAppService;
+            _userRepository = userRepository;
         }
 
         public IActionResult Index()
@@ -57,25 +59,19 @@ namespace AdminLTE.Demo.MVC.Controllers
 
         public IActionResult Edit(UserDto dto, string roles)
         {
-            if (!ModelState.IsValid)
-            {
-                foreach (var item in ModelState.Values)
-                {
-                    if (item.Errors.Count > 0)
-                    {
-                        ViewBag.ErrorInfo = item.Errors[0].ErrorMessage;
-                        break;
-                    }
-                }
-                return View(dto);
-            }
-
             try
             {
+
+                if (_userRepository.IsExist(p=>p.UserName == dto.UserName))
+                {
+                    return Json(new { Result = "Faild",Message = "用户名已存在！"});
+                }
+
                 if (dto.Id == Guid.Empty)
                 {
                     dto.Id = Guid.NewGuid();
                 }
+
                 var userRoles = new List<UserRoleDto>();
                 foreach (var role in roles.Split(','))
                 {

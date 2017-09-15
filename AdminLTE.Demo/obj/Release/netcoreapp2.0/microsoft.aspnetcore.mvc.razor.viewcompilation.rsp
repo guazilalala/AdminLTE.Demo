@@ -4,6 +4,8 @@ D:\GitHub\AdminLTE.Demo\AdminLTE.Demo
 --content-root=D:\GitHub\AdminLTE.Demo\AdminLTE.Demo
 --file=D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\Views\Department\Index.cshtml
 --file=D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\Views\Department\_Edit.cshtml
+--file=D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\Views\Dictionary\Index.cshtml
+--file=D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\Views\Dictionary\_Edit.cshtml
 --file=D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\Views\Home\Index.cshtml
 --file=D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\Views\Login\Index.cshtml
 --file=D:\GitHub\AdminLTE.Demo\AdminLTE.Demo\Views\Menu\Index.cshtml

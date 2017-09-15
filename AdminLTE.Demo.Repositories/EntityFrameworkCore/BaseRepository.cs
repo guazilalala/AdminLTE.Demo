@@ -192,6 +192,16 @@ namespace AdminLTE.Demo.Repositories.EntityFrameworkCore
 
             return Expression.Lambda<Func<TEntity, bool>>(lambdaBody, lambdaParam);
         }
+
+        /// <summary>
+        /// 查询是否存在数据 
+        /// </summary>
+        /// <param name="predicate">lambda表达式条件</param>
+        /// <returns></returns>
+        public bool IsExist(Expression<Func<TEntity, bool>> where)
+        {
+           return  _dbContext.Set<TEntity>().Where(where).Any();
+        }
     }
 
     /// <summary>

@@ -48,6 +48,14 @@ namespace AdminLTE.Demo.Domain.IRepositories
 		/// <returns></returns>
 		TEntity FirstOrDefault(Expression<Func<TEntity, bool>> predicate);
 
+
+        /// <summary>
+        /// 查询是否存在数据 
+        /// </summary>
+        /// <param name="predicate">lambda表达式条件</param>
+        /// <returns></returns>
+        bool IsExist(Expression<Func<TEntity, bool>> where);
+
 		/// <summary>
 		/// 新增实体
 		/// </summary>

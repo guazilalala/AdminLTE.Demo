@@ -1,11 +1,61 @@
 ﻿var selectedId = "00000000-0000-0000-0000-000000000000";
 $(function () {
     $("#btnAdd").click(function () { add(); });
-    $("#btnSave").click(function () { save(); });
+    $("#btnSave").click(function () {
+        var userform = $('#userform');
+        var bv = userform.data('bootstrapValidator');
+        bv.validate();
+        if (bv.isValid()) {
+            save();
+            $('#userform').data('bootstrapValidator').resetForm(); //重置验证
+        }
+    });
+    $("#btnCancel").click(function () { cancel(); });
+    $("#formClose").click(function () { cancel(); });
     $("#btnDelete").click(function () { deleteMulti(); });
     $("#checkAll").click(function () { checkAll(this) });
     initTree();
+    validatorIt();
 });
+
+//表单验证
+function validatorIt() {
+    var userform = $('#userform');
+    $('#userform').bootstrapValidator({
+        message: "This value is not valid",
+        feedbackIcons: {
+            valid: "glyphicon glyphicon-ok",
+            invalid: "glyphicon glyphicon-remove",
+            validating: "glyphicon glyphicon-refresh"
+        },
+        fields: {
+            username: {
+                message: "用户名验证失败",
+                validators: {
+                    notEmpty: {
+                        message: "用户名不能为空"
+                    }
+                }
+            },
+            password: {
+                validators: {
+                    notEmpty: {
+                        message: "密码不能为空"
+                    }
+                }
+            },
+            role: {
+                validators: {
+                    notEmpty: {
+                        message: "所属角色不能为空"
+                    }
+                }
+            }
+        }
+    });
+
+};
+
 //全选
 function checkAll(obj) {
     $(".checkboxs").each(function () {
@@ -102,9 +152,18 @@ function add() {
     $("#Remarks").val("");
     $("#Role").select2("val", "");
     $("#Title").text("新增用户");
+
     //弹出新增窗体
     $("#editModal").modal("show");
 };
+
+//取消
+function cancel()
+{
+    $('#userform').data('bootstrapValidator').resetForm(); //重置验证
+    $("#editModal").modal("hide");
+};
+
 //编辑
 function edit(id) {
     $.ajax({
@@ -136,6 +195,7 @@ function save() {
     if ($("#Role").val())
         roles = $("#Role").val().toString();
     var postData = { "dto": { "Id": $("#Id").val(), "UserName": $("#UserName").val(), "Password": $("#Password").val(), "Name": $("#Name").val(), "EMail": $("#EMail").val(), "MobileNumber": $("#MobileNumber").val(), "Remarks": $("#Remarks").val(), "DepartmentId": selectedId }, "roles": roles };
+
     $.ajax({
         type: "Post",
         url: "/User/Edit",
@@ -144,8 +204,9 @@ function save() {
             if (data.result == "Success") {
                 loadTables(1, 10)
                 $("#editModal").modal("hide");
-            } else {
-                layer.tips(data.message, "#btnSave");
+            }
+            else {
+                layer.alert(data.message, "#btnSave");
             };
         }
     });
