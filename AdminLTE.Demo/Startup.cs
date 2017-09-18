@@ -1,4 +1,5 @@
 ﻿using AdminLTE.Demo.Application;
+using AdminLTE.Demo.Application.DataDictonaryApp;
 using AdminLTE.Demo.Application.DepartmentApp;
 using AdminLTE.Demo.Application.MenuApp;
 using AdminLTE.Demo.Application.RoleApp;
@@ -39,7 +40,10 @@ namespace AdminLTE.Demo
         {
             services.AddMvc();
             //获取数据库连接字符串
-            var sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");
+            //var sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");
+            var sqlConnectionString = Configuration.GetConnectionString("LocalConnection");
+
+            
 
             //添加数据上下文
             services.AddDbContext<DefaultDbContext>(options =>
@@ -54,8 +58,10 @@ namespace AdminLTE.Demo
             services.AddScoped<IDepartmentAppService, DepartmentAppService>();
             services.AddScoped<IRoleRepository, RoleRepository>();
             services.AddScoped<IRoleAppService, RoleAppService>();
-			//登录拦截服务
-			services.AddScoped<LoginActionFilter>();
+            services.AddScoped<IDataDictionaryRepository, DataDictionaryRepository>();
+            services.AddScoped<IDataDictonaryAppService, DataDictonaryAppService>();
+            //登录拦截服务
+            services.AddScoped<LoginActionFilter>();
 
             //Session服务
             services.AddSession();

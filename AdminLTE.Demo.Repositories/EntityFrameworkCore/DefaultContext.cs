@@ -15,6 +15,7 @@ namespace AdminLTE.Demo.Repositories.EntityFrameworkCore
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<RoleMenu> RoleMenus { get; set; }
 
+        public DbSet<DataDictionary> DataDictonarys { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserRole>()

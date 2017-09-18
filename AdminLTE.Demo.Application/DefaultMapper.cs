@@ -1,4 +1,5 @@
-﻿using AdminLTE.Demo.Application.DepartmentApp.Dtos;
+﻿using AdminLTE.Demo.Application.DataDictonaryApp.Dtos;
+using AdminLTE.Demo.Application.DepartmentApp.Dtos;
 using AdminLTE.Demo.Application.MenuApp.Dtos;
 using AdminLTE.Demo.Application.RoleApp.Dtos;
 using AdminLTE.Demo.Application.UserApp.Dtos;
@@ -34,6 +35,8 @@ namespace AdminLTE.Demo.Application
                 cfg.CreateMap<User, UserDto>();
                 cfg.CreateMap<UserRoleDto, UserRole>();
                 cfg.CreateMap<UserRole, UserRoleDto>();
+                cfg.CreateMap<DataDictionary, DataDictionaryDto>();
+                cfg.CreateMap<DataDictionaryDto, DataDictionary>();
             });
         }
 

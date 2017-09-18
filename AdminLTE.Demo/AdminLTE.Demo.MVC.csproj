@@ -27,6 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\Department\Index.js" />
+    <None Include="wwwroot\lib\bootstrap-treeview\dist\bootstrap-treeview.min.js" />
     <None Include="wwwroot\Menu\Index.js" />
     <None Include="wwwroot\Role\Index.js" />
     <None Include="wwwroot\User\Index.js" />
