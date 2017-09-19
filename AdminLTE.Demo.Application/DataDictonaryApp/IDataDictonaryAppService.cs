@@ -13,6 +13,12 @@ namespace AdminLTE.Demo.Application.DataDictonaryApp
         /// <returns></returns>
         List<DataDictionaryDto> GetAllList();
 
+        /// <summary>
+        /// 是否有子节点
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        bool HasChild(Guid id);
 
         /// <summary>
         /// 新增或修改功能
@@ -48,6 +54,18 @@ namespace AdminLTE.Demo.Application.DataDictonaryApp
         /// <param name="rowCount">数据总数</param>
         /// <returns></returns>
         List<DataDictionaryDto> GetAllPageList(int startPage, int pageSize, out int rowCount);
+
+
+        /// <summary>
+        /// 通过ID获取字典分页列表
+        /// </summary>
+        /// <param name="id">Gyud</param>
+        /// <param name="startPage">起始页</param>
+        /// <param name="pageSize">页面大小</param>
+        /// <param name="rowCount">数据总数</param>
+        /// <returns></returns>
+        List<DataDictionaryDto> GetListById(Guid id,int startPage, int pageSize, out int rowCount);
+
 
     }
 }

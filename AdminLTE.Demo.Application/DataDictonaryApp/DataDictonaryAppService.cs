@@ -43,6 +43,25 @@ namespace AdminLTE.Demo.Application.DataDictonaryApp
             return Mapper.Map<List<DataDictionaryDto>>(_dataDictonaryRepository.LoadPageList(startPage, pageSize, out rowCount, null, it => it.Code));
         }
 
+        public List<DataDictionaryDto> GetListById(Guid id, int startPage, int pageSize, out int rowCount)
+        {
+            return Mapper.Map<List<DataDictionaryDto>>(_dataDictonaryRepository.LoadPageList(startPage, pageSize, out rowCount, it=>it.ParentId ==id, it => it.Code));
+        }
+
+        public bool HasChild(Guid id)
+        {
+            var query = _dataDictonaryRepository.FirstOrDefault(p => p.ParentId == id);
+
+            if (query == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         public bool InsertOrUpdate(DataDictionaryDto dto)
         {
             var dataDictonary = _dataDictonaryRepository.InsertOrUpdate(Mapper.Map<DataDictionary>(dto));

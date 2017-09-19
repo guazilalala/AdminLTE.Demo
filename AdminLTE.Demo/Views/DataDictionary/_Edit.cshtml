@@ -3,37 +3,36 @@
         <div class="box box-info">
             <div class="box-header with-border">
                 <h5 class="box-title" id="Title"></h5>
-                <button class="close" aria-label="Close" type="button" data-dismiss="modal">
+                <button id="formClose" class="close" aria-label="Close" type="button" data-dismiss="modal">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <form class="form-horizontal">
+            <form class="form-horizontal" id="DictionaryForm">
                 <input type="hidden" id="Id" />
                 <input type="hidden" id="ParentId" />
                 <div class="box-body">
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="">上级</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="Parent">
-                            </select>
+                            <input class="form-control" id="Parent" type="text" readonly="readonly">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="">名称</label>
+                        <label class="col-sm-2 control-label" for="">名称<span style="color:red"> *</span></label>
                         <div class="col-sm-10">
-                            <input class="form-control" id="Name" type="text" placeholder="名称">
+                            <input class="form-control" id="Name" name="name" type="text" placeholder="名称">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="">编码</label>
+                        <label class="col-sm-2 control-label" for="">编码<span style="color:red"> *</span></label>
                         <div class="col-sm-10">
-                            <input class="form-control" id="Code" type="text" placeholder="编码">
+                            <input class="form-control" id="Code" name="code" type="text" placeholder="编码">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="">值</label>
+                        <label class="col-sm-2 control-label" for="">值<span style="color:red"> *</span></label>
                         <div class="col-sm-10">
-                            <input class="form-control" id="Value" type="text" placeholder="值">
+                            <input class="form-control" id="Value" name="value" type="text" placeholder="值">
                         </div>
                     </div>
                     <div class="form-group">
@@ -46,9 +45,9 @@
                         <label class="col-sm-2 control-label">是否可用</label>
                         <div class="col-sm-10">
                             <label class="control-label">
-                                <input type="radio" id="Enabled" checked="checked" name="deleted" class="form-check-input" value="true" readonly="readonly"> 启用
+                                <input type="radio" id="Enabled" name="deleted" class="form-check-input"> 启用
                             </label> &nbsp;&nbsp;&nbsp; <label class="control-label">
-                                <input type="radio" id="Disabled" name="deleted" class="form-check-input" value="false" readonly="readonly"> 禁用
+                                <input type="radio" id="Disabled" name="deleted" class="form-check-input"> 禁用
                             </label>
                         </div>
                     </div>
@@ -60,9 +59,12 @@
                     </div>
                 </div>
                 <div class="box-footer">
-                    <div class="pull-right box-tools">
+                    <div class="pull-left">
+                        <input id="confirmAndClose" class="checkbox-inline" type="checkbox" checked="checked" /> 确认并关闭窗口
+                    </div>    
+                    <div class="pull-right box-tools">                
                         <button id="btnSave" class="btn btn-primary" type="button">保存</button>
-                        <button class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+                        <button id="btnCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
                     </div>
                 </div>
             </form>
